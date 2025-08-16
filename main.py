@@ -91,16 +91,36 @@ def check_losses(match_history):
     
     return losses
 
+
 @bot.event
 async def on_ready():
-    print(f"Logged in as {bot.user}!")
+    try:
+        await bot.tree.sync()
+        print(f"✅ Logged in as {bot.user}. Slash commands synced.")
+    except Exception as e:
+        print("Slash command sync failed:", e)
 
 @bot.command()
 async def hello(ctx):
     await ctx.send("Hello! I'm alive.")
 
 
-    
+@bot.command()
+async def tea(ctx):
+    file = discord.File("images/tea.jpg", filename="tea.jpg")
+    await ctx.send(file=file)
+
+@bot.command()
+async def bonk(ctx):
+    file = discord.File("images/bonk.png", filename="bonk.png")
+    await ctx.send(file=file)
+
+
+@bot.tree.command(name="tea", description="yoda tea")
+async def tea(interaction: discord.Interaction):
+    file = discord.File("images/tea.jpg", filename="tea.jpg")
+    await interaction.response.send_message(file=file)
+
 
 if __name__ == "__main__":
     if not TOKEN:
