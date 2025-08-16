@@ -78,15 +78,15 @@ def send_to_discord(match_id):
     requests.post("https://discord.com/api/webhooks/1406092359388889318/NmjS_E3e-EooUGR-EqQGGH75b2KoaRIcs8Av9clzCO4-X156qLUKrhZZbVlv9SvUAp7U", json=data)
 
 GIFS =[
-"https://tenor.com/view/jungle-diff-gif-12813900196858187534",
-"https://tenor.com/view/viktorarcane-league-of-legends-lolz-lux-gg-ez-gif-23894685",
-"https://tenor.com/view/kaoru-gif-22245949",
-"https://tenor.com/view/league-of-legends-lol-riot-games-riot-uninstall-gif-18739871",
-"https://tenor.com/view/delete-ts-bro-bro-delete-ts-gif-12236641355032177225",
-"https://tenor.com/view/trash-gif-26305436",
-"https://tenor.com/view/seraphine-anima-squad-quit-league-uninstall-league-sera-lol-gif-5227539488395481688",
-"https://tenor.com/view/seraphine-my-beloved-league-of-legends-gif-21116791",
-"https://tenor.com/view/seraphine-league-of-legends-dance-dancing-kpop-gif-19003337"
+"gifs/gif1.gif",
+"gifs/gif2.gif",
+"gifs/gif3.gif",
+"gifs/gif4.gif",
+"gifs/gif5.gif",
+"gifs/gif6.gif",
+"gifs/gif7.gif",
+"gifs/gif8.gif",
+"gifs/gif9.gif"
 ]
 TITLE = [
     "Defeat... ",
