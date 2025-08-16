@@ -152,6 +152,10 @@ async def tea(interaction: discord.Interaction):
     file = discord.File("images/tea.jpg", filename="tea.jpg")
     await interaction.response.send_message(file=file)
 
+@bot.command()
+async def test(ctx):
+    send_to_discord("ME1_13460302")
+    await ctx.send(test)
 
 if __name__ == "__main__":
     if not TOKEN:
