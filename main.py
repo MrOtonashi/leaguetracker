@@ -1,4 +1,5 @@
 import os
+import random
 from wsgiref import headers
 from dotenv import load_dotenv
 import discord
@@ -60,12 +61,42 @@ def is_loss(match_id):
 
 # Function to send a message alerting it in discord
 def send_to_discord(match_id):
+    gif_url = random.choice(GIFS)
+    title = random.choice(TITLE)
     data = {
-        "content": f"😢 MPGGLOL Lost a game! Match ID: {match_id}\nhttps://www.op.gg/summoners/REGION/SUMMONER_NAME"
+        "embeds": [
+            {
+                "title": title,
+                "description": f"😢 MPGGLOL Lost a game! Match ID: `{match_id}`",
+                "image": {
+                    "url": gif_url
+                },
+                "color": 16711680  # red
+            }
+        ]
     }
     requests.post("https://discord.com/api/webhooks/1406092359388889318/NmjS_E3e-EooUGR-EqQGGH75b2KoaRIcs8Av9clzCO4-X156qLUKrhZZbVlv9SvUAp7U", json=data)
 
-
+GIFS =[
+"https://tenor.com/view/jungle-diff-gif-12813900196858187534",
+"https://tenor.com/view/viktorarcane-league-of-legends-lolz-lux-gg-ez-gif-23894685",
+"https://tenor.com/view/kaoru-gif-22245949",
+"https://tenor.com/view/league-of-legends-lol-riot-games-riot-uninstall-gif-18739871",
+"https://tenor.com/view/delete-ts-bro-bro-delete-ts-gif-12236641355032177225",
+"https://tenor.com/view/trash-gif-26305436",
+"https://tenor.com/view/seraphine-anima-squad-quit-league-uninstall-league-sera-lol-gif-5227539488395481688",
+"https://tenor.com/view/seraphine-my-beloved-league-of-legends-gif-21116791",
+"https://tenor.com/view/seraphine-league-of-legends-dance-dancing-kpop-gif-19003337"
+]
+TITLE = [
+    "Defeat... ",
+    "MPGGLOL's Loss",
+    "Sad Game",
+    "Sad Times",
+    "MPGGLOL Delete the game",
+    "MPGGLOL Uninstall the game",
+    "Get better MPGGLOL"
+]
 
 # Function to check when MPGG gets a loss
 def check_losses(match_history):
