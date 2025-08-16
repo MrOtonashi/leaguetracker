@@ -78,24 +78,24 @@ def send_to_discord(match_id):
     requests.post("https://discord.com/api/webhooks/1406092359388889318/NmjS_E3e-EooUGR-EqQGGH75b2KoaRIcs8Av9clzCO4-X156qLUKrhZZbVlv9SvUAp7U", json=data)
 
 GIFS =[
-"gifs/gif1.gif",
-"gifs/gif2.gif",
-"gifs/gif3.gif",
-"gifs/gif4.gif",
-"gifs/gif5.gif",
-"gifs/gif6.gif",
-"gifs/gif7.gif",
-"gifs/gif8.gif",
-"gifs/gif9.gif"
+"https://i.imgur.com/2teHIyr.gif",
+"https://i.imgur.com/DP6YUts.gif",
+"https://i.imgur.com/akSipvn.gif",
+"https://i.imgur.com/i2WtLQz.gif",
+"https://i.imgur.com/kM8h9Wb.gif",
+"https://i.imgur.com/ZK20xfK.gif",
+"https://i.imgur.com/yeUKAB6.gif",
+"https://i.imgur.com/XnVCFug.gif",
+"https://i.imgur.com/2ZFkxAI.gif"
 ]
 TITLE = [
     "Defeat... ",
     "MPGGLOL's Loss",
     "Sad Game",
     "Sad Times",
-    "MPGGLOL Delete the game",
-    "MPGGLOL Uninstall the game",
-    "Get better MPGGLOL"
+    "MPGG Delete the game please",
+    "MPGG Uninstall the game",
+    "Get better MPGG"
 ]
 
 # Function to check when MPGG gets a loss
