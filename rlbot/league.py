@@ -11,8 +11,6 @@ API_KEY = os.getenv("RIOT_API_KEY")
 headers = {"X-Riot-Token": API_KEY}
 
 region = "europe"
-game_name = "MPGGLOL"
-tag_line = "KIRYU"
 
 
 
@@ -43,7 +41,7 @@ def get_match_data(match_id):
     response = requests.get(url, headers=headers)
     return response.json()
 
-def toxic_score():
+def toxic_score(game_name, tag_line):
     puuid = get_puuid(game_name, tag_line)
     match = get_match_data(get_recent_match_ids(1, puuid))
     
@@ -63,3 +61,12 @@ def toxic_score():
     f"Missing ping: {missing_ping} times"
     
     return message
+
+__all__ = [
+    "get_puuid",
+    "get_recent_match_ids",
+    "get_match_data",
+    "toxic_score",
+    "API_KEY",
+    "region",
+]
