@@ -41,17 +41,31 @@ def get_match_data(match_id):
     response = requests.get(url, headers=headers)
     return response.json()
 
-def toxic_score(game_name, tag_line):
-    puuid = get_puuid(game_name, tag_line)
-    match = get_match_data(get_recent_match_ids(1, puuid))
+def get_target(game_name, tag_line):
+
+    try:
+        puuid = get_puuid(game_name, tag_line)
+        match = get_match_data(get_recent_match_ids(1, puuid))
+        
+        count = 0
+        for participant in match["metadata"]["participants"]:
+            if participant == puuid:
+                break
+            count += 1
+        
+        target = match["info"]["participants"][count]
+        return target
     
-    count = 0
-    for participant in match["metadata"]["participants"]:
-        if participant == puuid:
-            break
-        count += 1
-    
-    target = match["info"]["participants"][count]
+    except:
+        return "Error, name or tag might be wrong dummy"
+
+def wardscore(game_name, tag_line):
+
+    target = get_target(game_name, tag_line)
+
+    if type(target) is str:
+        message = target
+        return message
 
     missing_ping = target["enemyMissingPings"]
     vision_ping = target["enemyVisionPings"]
@@ -61,6 +75,7 @@ def toxic_score(game_name, tag_line):
     f"Missing ping: {missing_ping} times"
     
     return message
+
 
 __all__ = [
     "get_puuid",

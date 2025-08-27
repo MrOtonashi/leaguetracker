@@ -22,5 +22,5 @@ def general(bot):
         await ctx.send(file=file)
 
     @bot.command()
-    async def toxicscore(ctx, name: str, tag: str):
-        await ctx.send(toxic_score(name, tag))
+    async def wardscore(ctx, name: str, tag: str):
+        await ctx.send(wardscore(name, tag))
