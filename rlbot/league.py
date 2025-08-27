@@ -59,7 +59,7 @@ def get_target(game_name, tag_line):
     except:
         return "Error, name or tag might be wrong dummy"
 
-def wardscore(game_name, tag_line):
+def ward_score(game_name, tag_line):
 
     target = get_target(game_name, tag_line)
 
@@ -70,7 +70,7 @@ def wardscore(game_name, tag_line):
     missing_ping = target["enemyMissingPings"]
     vision_ping = target["enemyVisionPings"]
 
-    message = f"Last match {game_name} toxic pings: \n" \
+    message = f"Last match {game_name} pinged: \n" \
     f"Vision ping: {vision_ping} times \n" \
     f"Missing ping: {missing_ping} times"
     
@@ -81,7 +81,7 @@ __all__ = [
     "get_puuid",
     "get_recent_match_ids",
     "get_match_data",
-    "wardscore",
+    "ward_score",
     "API_KEY",
     "region",
 ]

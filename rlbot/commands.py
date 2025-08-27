@@ -23,4 +23,4 @@ def general(bot):
 
     @bot.command()
     async def wardscore(ctx, name: str, tag: str):
-        await ctx.send(wardscore(name, tag))
+        await ctx.send(ward_score(name, tag))
