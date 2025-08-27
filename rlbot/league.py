@@ -81,7 +81,7 @@ __all__ = [
     "get_puuid",
     "get_recent_match_ids",
     "get_match_data",
-    "toxic_score",
+    "wardscore",
     "API_KEY",
     "region",
 ]
