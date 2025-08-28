@@ -22,5 +22,13 @@ def general(bot):
         await ctx.send(file=file)
 
     @bot.command()
+    async def addplayer(ctx, name: str, game_name: str, tag: str):
+        store_player(name, game_name, tag)
+        await ctx.send(f"Player {game_name}#{tag} added as {name}!")
+
+    
+    @bot.command()
     async def wardscore(ctx, name: str, tag: str):
         await ctx.send(ward_score(name, tag))
+
+   

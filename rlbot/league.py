@@ -2,6 +2,7 @@ import os
 from discord.ext import commands
 import requests
 from dotenv import load_dotenv
+import pickle
 
 env_path = os.path.join(os.path.dirname(__file__), '..', '.env')
 load_dotenv(dotenv_path=env_path)
@@ -76,6 +77,26 @@ def ward_score(game_name, tag_line):
     
     return message
 
+def store_player(name, game_name, tag):
+    player_dic = {name : [game_name, tag]}
+
+    filehandler = open("player.txt", 'wb')
+    pickle.dump(player_dic, filehandler)
+
+    filehandler.close()
+
+
+def get_player(name):
+    filehandler = open('player.txt', 'rb')
+    db = pickle.load(filehandler)
+    for keys in db:
+        if keys == name:
+            return db[keys]
+        else:
+            return "Player does not exist"
+    filehandler.close()
+
+
 
 __all__ = [
     "get_puuid",
@@ -84,4 +105,7 @@ __all__ = [
     "ward_score",
     "API_KEY",
     "region",
+    "get_player",
+    "store_player"
 ]
+
